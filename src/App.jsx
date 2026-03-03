@@ -10,6 +10,7 @@ function App() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const titles = [
+    "React Developer",
     "Next.js Developer",
     "Flutter Developer",
     "UI/UX Enthusiast",
