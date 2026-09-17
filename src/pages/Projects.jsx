@@ -1,4 +1,4 @@
-import { FaMobileAlt, FaLink } from "react-icons/fa";
+import { FaMobileAlt, FaRobot, FaFilm } from "react-icons/fa";
 import Reveal from "../components/Reveal";
 
 const featuredProjects = [
@@ -22,11 +22,11 @@ const featuredProjects = [
 
 const otherProjects = [
   {
-    title: "Weather App",
-    desc: "Flutter based weather app using real-time API integration.",
-    icon: FaMobileAlt,
-    link: "https://github.com/ChauhanAntima/weather-app",
-    linkLabel: "View Code →",
+    title: "MirrorTV",
+    desc: "Netflix-style OTT streaming app with content browsing, video playback, and user profiles.",
+    icon: FaFilm,
+    link: null,
+    linkLabel: "Private Client Project",
   },
   {
     title: "HerShield Mobile App",
@@ -36,11 +36,11 @@ const otherProjects = [
     linkLabel: "View Code →",
   },
   {
-    title: "URL Shortener",
-    desc: "Simple and efficient URL shortening service built from scratch.",
-    icon: FaLink,
-    link: "https://github.com/ChauhanAntima/URL_Shortener",
-    linkLabel: "View Code →",
+    title: "Customer Outreach Agent",
+    desc: "Self-hosted n8n workflow that automates personalized WhatsApp marketing campaigns at scale, with live status tracking via Google Sheets.",
+    icon: FaRobot,
+    link: null,
+    linkLabel: "Private Client Project",
   },
 ];
 
@@ -88,22 +88,28 @@ function Projects() {
           const Icon = project.icon;
           return (
             <Reveal key={project.title} delay={i * 80}>
-              <div className="border border-cyan-500/30 p-6 sm:p-8 rounded-xl text-center hover:border-cyan-400 hover:scale-105 transition h-full">
+              <div className="border border-cyan-500/30 p-6 sm:p-8 rounded-xl text-center hover:border-cyan-400 hover:scale-105 transition h-full flex flex-col">
                 <Icon className="text-4xl mx-auto mb-6 text-cyan-400" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-4">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-6 text-sm sm:text-base">
+                <p className="text-gray-400 mb-6 text-sm sm:text-base flex-grow">
                   {project.desc}
                 </p>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:underline"
-                >
-                  {project.linkLabel}
-                </a>
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-400 hover:underline"
+                  >
+                    {project.linkLabel}
+                  </a>
+                ) : (
+                  <span className="text-gray-500 text-sm font-medium">
+                    {project.linkLabel}
+                  </span>
+                )}
               </div>
             </Reveal>
           );
